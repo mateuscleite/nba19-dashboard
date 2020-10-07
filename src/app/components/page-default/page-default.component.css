@@ -1,7 +1,17 @@
 .page-default{
-    display: flex;
-    flex-direction: row-reverse;
+    display: grid;
+    grid-template-columns: 5rem 1fr;
     height: 100vh;
+}
+
+app-navigation-bar{
+    background-color: var(--primary);
+    position: fixed;
+    left: 0px;
+    top:0px;
+    height: 100vh;
+    width: 5rem;
+    grid-column-start: 1;
 }
 
 app-content{
@@ -10,16 +20,7 @@ app-content{
     background-image: url('https://static-wp-tor15-prd.torcedores.com/wp-content/uploads/2018/10/social_share_default.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    flex: 1;
     height: 100vh;
-    margin-left: 5rem;
     width:100%;
-}
-app-navigation-bar{
-    background-color: var(--primary);
-    position: fixed;
-    left: 0px;
-    top:0px;
-    height: 100vh;
-    width: 5rem;
+    grid-column-start: 2;
 }
