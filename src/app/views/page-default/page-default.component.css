@@ -15,12 +15,9 @@ app-navigation-bar{
 }
 
 app-content{
-    background-attachment: fixed;
-    background-color: var(--secondary);
-    background-image: url('https://static-wp-tor15-prd.torcedores.com/wp-content/uploads/2018/10/social_share_default.png');
-    background-repeat: no-repeat;
+    background-color: #2B2A2F;
     background-size: 100% 100%;
-    height: 100vh;
+    height: 100%;
     width:100%;
     grid-column-start: 2;
 }

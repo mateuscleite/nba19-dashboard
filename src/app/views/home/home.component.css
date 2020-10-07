@@ -1,0 +1,32 @@
+.home{
+    display:grid;
+    grid-template: 20rem / 1fr 1fr;
+}
+
+.players{
+    background: url('https://cdn.theathletic.com/app/uploads/2019/04/07214203/NBA_Poll-1024x638.jpg') no-repeat center;
+    background-size: contain;
+    background-color: #0A1310;
+    grid-row: 1; 
+    grid-column: 1;
+}
+
+.players:hover{
+    cursor:pointer;
+}
+
+.team{
+    background: url('../../../assets/images/teams.jpg') no-repeat center;
+    background-size: contain;
+    background-color: black;
+    grid-row: 1;
+    grid-column: 2;
+}
+
+.team:hover{
+    cursor:pointer;
+}
+
+app-search-bar{
+    text-align: center;
+}
