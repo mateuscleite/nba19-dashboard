@@ -9,3 +9,9 @@ ul{
 ul li {
     padding-bottom: 0.5rem;
 }
+
+ul li:hover{
+    color: var(--primaryLight);
+    cursor: pointer;
+    transition: 0.2s
+}

@@ -8,6 +8,8 @@ import { PageDefaultComponent } from './views/page-default/page-default.componen
 import { ContentComponent } from './components/content/content.component';
 import { HomeComponent } from './views/home/home.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { TeamListComponent } from './views/team-list/team-list.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     PageDefaultComponent,
     ContentComponent,
     HomeComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    TeamListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -32,7 +32,7 @@ const getPlayerById = (req, res) => {
 }
 
 const getTeams = (req, res) => {
-    pool.query('SELECT * FROM teams ORDER BY name',
+    pool.query('SELECT * FROM teams ORDER BY city ASC',
         (error, results) => {
             if (error){
                 throw error
