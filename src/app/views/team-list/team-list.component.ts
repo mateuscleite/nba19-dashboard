@@ -1,4 +1,4 @@
-import { TeamsService } from './../../services/teams.service';
+import { NbaService } from './../../services/nba.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
@@ -12,7 +12,7 @@ export class TeamListComponent implements OnInit {
   teams: any[] = new Array();
   subscription: Subscription;
 
-  constructor(private service: TeamsService) { }
+  constructor(private service: NbaService) { }
 
   ngOnInit(): void {
     this.loadTeams()

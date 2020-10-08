@@ -1,0 +1,6 @@
+<div class="list">
+    <div class="item" *ngFor="let player of players">
+        <img src='{{ player["photo_url"] }}'>
+        <span>{{ player['first_name'] }} {{ player['last_name'] }}</span>
+    </div>
+</div>

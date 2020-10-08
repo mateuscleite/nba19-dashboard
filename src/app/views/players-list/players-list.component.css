@@ -1,0 +1,9 @@
+.list{
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    max-width: 2rem;
+    max-height: 2.75rem;
+}
