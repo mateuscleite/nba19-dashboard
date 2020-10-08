@@ -3,6 +3,10 @@
     flex-direction: column;
 }
 
+.item:hover{
+    cursor: pointer;
+}
+
 img {
     max-width: 2rem;
     max-height: 2.75rem;

@@ -22,7 +22,9 @@ const getPlayers = (req, res) => {
 const getPlayerById = (req, res) => {
     const id = req.params.id
 
-    pool.query('SELECT * FROM players WHERE player_id = $1', [id],
+    pool.query('SELECT * FROM players p \
+                    JOIN player_stats ps ON p.player_id = ps.player_id \
+                    WHERE p.player_id = $1', [id],
         (error, results) => {
             if (error){
                 throw error
@@ -44,7 +46,9 @@ const getTeams = (req, res) => {
 const getTeamById = (req, res) => {
     const id = req.params.id
 
-    pool.query('SELECT * FROM teams WHERE team_id = $1', [id],
+    pool.query('SELECT * FROM teams t \
+                    JOIN team_stats ts ON t.team_id = ts.team_id\
+                    WHERE t.team_id = $1', [id],
         (error, results) => {
             if (error){
                 throw error

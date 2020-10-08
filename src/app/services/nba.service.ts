@@ -15,9 +15,16 @@ export class NbaService {
     return this.http.get<any[]>(`${this.API}players`)
   }
 
+  getPlayerDetails(id: number){
+    return this.http.get<any>(`${this.API}players/${id}`)
+  }
+
   getTeamsList(){
     return this.http.get<any[]>(`${this.API}teams`)
   }
 
+  getTeamDetails(id: number){
+    return this.http.get<any>(`${this.API}teams/${id}`)
+  }
 
 }

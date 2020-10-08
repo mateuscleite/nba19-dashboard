@@ -10,7 +10,9 @@ import { HomeComponent } from './views/home/home.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { TeamListComponent } from './views/team-list/team-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PlayersListComponent } from './views/players-list/players-list.component'
+import { PlayersListComponent } from './views/players-list/players-list.component';
+import { TeamDetailsComponent } from './views/team-details/team-details.component';
+import { PlayerDetailsComponent } from './views/player-details/player-details.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { PlayersListComponent } from './views/players-list/players-list.componen
     HomeComponent,
     SearchBarComponent,
     TeamListComponent,
-    PlayersListComponent
+    PlayersListComponent,
+    TeamDetailsComponent,
+    PlayerDetailsComponent
   ],
   imports: [
     BrowserModule,

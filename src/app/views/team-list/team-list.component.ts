@@ -26,4 +26,8 @@ export class TeamListComponent implements OnInit {
       })
   }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+  
 }

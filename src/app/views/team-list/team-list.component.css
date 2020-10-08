@@ -11,6 +11,10 @@
     height: 3rem;
 }
 
+.item:hover{
+    cursor: pointer;
+}
+
 img {
     width: 2rem;
     height: 2rem;

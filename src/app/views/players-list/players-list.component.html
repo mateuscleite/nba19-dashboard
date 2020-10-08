@@ -1,5 +1,5 @@
 <div class="list">
-    <div class="item" *ngFor="let player of players">
+    <div class="item" *ngFor="let player of players" [routerLink]="[player['player_id']]">
         <img src='{{ player["photo_url"] }}'>
         <span>{{ player['first_name'] }} {{ player['last_name'] }}</span>
     </div>
