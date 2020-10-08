@@ -5,7 +5,7 @@ import { NbaService } from 'src/app/services/nba.service';
 @Component({
   selector: 'app-players-list',
   templateUrl: './players-list.component.html',
-  styleUrls: ['./players-list.component.css']
+  styleUrls: ['./players-list.component.css', '../../styles/card.css']
 })
 export class PlayersListComponent implements OnInit {
 

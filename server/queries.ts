@@ -9,8 +9,11 @@ const pool = new Pool({
     database: 'postgres'
 })
 
+//join is used to get the team each player is in to display in the list
 const getPlayers = (req, res) => {
-    pool.query('SELECT * FROM players ORDER BY first_name',
+    pool.query('SELECT p.*, t.city, t.name FROM players p \
+                    JOIN teams t on p.team_id = t.team_id \
+                    ORDER BY p.first_name',
         (error, results) => {
             if (error){
                 throw error
