@@ -1,4 +1,5 @@
 .home{
+    color:white;
     display:grid;
     grid-template: 20rem / 1fr 1fr;
 }
@@ -29,4 +30,15 @@
 
 app-search-bar{
     text-align: center;
+}
+
+.home-card{
+    align-items: flex-end;
+    display: flex;
+    justify-content: center;
+}
+
+.home-card:hover{
+    color: var(--lightGrey);
+    transition: 0.3s;
 }

@@ -6,16 +6,23 @@
 }
 
 .item{
-    margin: 1rem;
-    width: 40%;
-    height: 3rem;
-}
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:1rem;
+    width: 8rem;
+    height: 11rem;
+    text-align: center;
+} 
 
 .item:hover{
     cursor: pointer;
+    border: 2px solid black;
 }
 
 img {
-    width: 2rem;
-    height: 2rem;
+    width: 5rem;
+    height: 5rem;
 }
