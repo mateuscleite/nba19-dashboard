@@ -17,16 +17,28 @@ export class Paginator {
     getPage(action: string){
         switch(action){
             case('next'):
-                if(this.offset + this.limit <= this.count){
+                if(this.offset + this.limit < this.count){
                     this.offset += this.limit;
+                }
+                else {
+                    this.offset = this.limit*Math.floor(this.count/this.limit)
                 }
                 break;
             case('previous'):
                 if(this.offset - this.limit >= 0){
                     this.offset = this.offset - this.limit;
                 }
+                else {
+                    this.offset = 0
+                }
                 break;
             case('current'):
+                if(this.offset + this.limit >= this.count){
+                    this.offset = this.limit*Math.floor(this.count/this.limit)
+                }
+                if(this.offset - this.limit < 0){
+                    this.offset = 0
+                }
                 break;
             default:
                 return;

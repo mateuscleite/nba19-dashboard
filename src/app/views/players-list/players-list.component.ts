@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Paginator } from './../../classes/paginator';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -17,13 +18,15 @@ export class PlayersListComponent implements OnInit {
   limit: number;
   page: Paginator;
   subscription: Subscription;
+  querySubscription: Subscription;
 
-  constructor(private service: NbaService) { 
+  constructor(private route: ActivatedRoute, private router: Router, private service: NbaService) { 
     this.offset = 0;
     this.limit = 40;
   }
 
   ngOnInit(): void {
+    this.querySubscription = this.getCurrentOffset();
     this.loadPlayers()
   }
 
@@ -38,14 +41,22 @@ export class PlayersListComponent implements OnInit {
       })
   }
 
+  getCurrentOffset(){
+    return this.route.queryParams.subscribe(queryParams => {
+      this.offset = parseInt(queryParams['offset'])
+    })
+  }
+
   nextPage(){
     this.playersDisplayed = this.page.getPage('next')
     this.offset = this.page.getOffset()
+    this.router.navigate(['/players'], {queryParams: {offset: this.offset}});
   }
 
   previousPage(){
     this.playersDisplayed = this.page.getPage('previous')
     this.offset = this.page.getOffset()
+    this.router.navigate(['/players'], {queryParams: {offset: this.offset}});
   }
 
 }
