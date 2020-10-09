@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  API: 'http:localhost:8000/'
+  API: 'https://nba19-api.herokuapp.com/'
 };
