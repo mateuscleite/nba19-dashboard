@@ -9,6 +9,15 @@
     cursor: pointer;
 }
 
+.icon{
+    max-width: 2rem;
+    max-height: 2rem;
+}
+
+.icon:hover{
+    cursor: pointer;
+}
+
 .player-list-card{
     background-color: var(--white);
     display: flex;

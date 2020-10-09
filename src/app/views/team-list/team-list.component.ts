@@ -1,6 +1,7 @@
 import { NbaService } from './../../services/nba.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-team-list',
@@ -12,10 +13,11 @@ export class TeamListComponent implements OnInit {
   teams: any[] = new Array();
   subscription: Subscription;
 
-  constructor(private service: NbaService) { }
+  constructor(private service: NbaService, private titleService: Title) { }
 
   ngOnInit(): void {
     this.loadTeams()
+    this.titleService.setTitle("Teams")
   }
 
   loadTeams(){
