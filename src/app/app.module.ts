@@ -13,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { PlayersListComponent } from './views/players-list/players-list.component';
 import { TeamDetailsComponent } from './views/team-details/team-details.component';
 import { PlayerDetailsComponent } from './views/player-details/player-details.component';
-import { SearchPlayerComponent } from './views/search-player/search-player.component'
+import { SearchPlayerComponent } from './views/search-player/search-player.component';
+import { SearchTeamComponent } from './views/search-team/search-team.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SearchPlayerComponent } from './views/search-player/search-player.compo
     PlayersListComponent,
     TeamDetailsComponent,
     PlayerDetailsComponent,
-    SearchPlayerComponent
+    SearchPlayerComponent,
+    SearchTeamComponent
   ],
   imports: [
     BrowserModule,

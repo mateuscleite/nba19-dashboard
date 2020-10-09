@@ -3,7 +3,7 @@
 </app-search-bar>
 
 <div class="list">
-    <div class="item card player-list-card" *ngFor="let player of players" [routerLink]="[player['player_id']]">
+    <div class="item card player-list-card" *ngFor="let player of players" [routerLink]="['/players', player['player_id']]">
         <img class="field" src='{{ player["photo_url"] }}'>
         <div>
             <p class="name">{{ player['first_name'] }} {{ player['last_name'] }}</p>

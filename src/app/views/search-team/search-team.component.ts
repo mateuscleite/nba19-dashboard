@@ -4,15 +4,15 @@ import { Subscription } from 'rxjs';
 import { NbaService } from 'src/app/services/nba.service';
 
 @Component({
-  selector: 'app-search-player',
-  templateUrl: './search-player.component.html',
-  styleUrls: ['./search-player.component.css', '../../styles/card.css', '../../styles/player-card-list.css']
+  selector: 'app-search-team',
+  templateUrl: './search-team.component.html',
+  styleUrls: ['./search-team.component.css', '../../styles/card.css', '../../styles/team-card-list.css']
 })
-export class SearchPlayerComponent implements OnInit {
+export class SearchTeamComponent implements OnInit {
 
   parameter: string;
   type: string;
-  players: any[] = new Array();
+  teams: any[] = new Array();
   subscription: Subscription;
   querySubscription: Subscription;
   
@@ -20,13 +20,13 @@ export class SearchPlayerComponent implements OnInit {
 
   ngOnInit(): void {
     this.querySubscription = this.getQueryParams();
-    this.searchPlayers();
+    this.searchTeams();
   }
 
-  searchPlayers(){
-    this.router.navigate(['/search'], {queryParams: {type: 'player', search: this.parameter}})
-    this.subscription = this.service.getPlayersSearch(this.parameter).subscribe(response =>{
-      this.players = response
+  searchTeams(){
+    this.router.navigate(['/search'], {queryParams: {type: 'team', search: this.parameter}})
+    this.subscription = this.service.getTeamsSearch(this.parameter).subscribe(response =>{
+      this.teams = response
     })
   }
 
@@ -40,7 +40,7 @@ export class SearchPlayerComponent implements OnInit {
   newSearch(parameter){
     this.parameter = parameter
     if(parameter !== ''){
-      this.searchPlayers()
+      this.searchTeams()
     }
   }
 

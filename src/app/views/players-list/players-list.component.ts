@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Paginator } from './../../classes/paginator';
 import { Component, OnInit } from '@angular/core';
@@ -20,12 +21,18 @@ export class PlayersListComponent implements OnInit {
   subscription: Subscription;
   querySubscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private router: Router, private service: NbaService) { 
-    this.offset = 0;
-    this.limit = 40;
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private service: NbaService, 
+    private titleService: Title) { 
+    
+      this.offset = 0;
+      this.limit = 40;
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Players")
     this.querySubscription = this.getCurrentOffset();
     this.loadPlayers()
   }
@@ -74,7 +81,7 @@ export class PlayersListComponent implements OnInit {
   searchPlayer(parameter){
     console.log(parameter)
     if(parameter !== ''){
-      this.router.navigate(['/search'], {queryParams: {type: 'player', search: parameter}});
+      this.router.navigate(['/players/search'], {queryParams: {type: 'player', search: parameter}});
     }
   }
 

@@ -1,0 +1,29 @@
+.list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.item{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:1rem;
+    width: 8rem;
+    height: 11rem;
+    text-align: center;
+} 
+
+.item:hover{
+    cursor: pointer;
+    background-color: var(--lightGrey);
+    transition: 0.1s
+}
+
+img {
+    width: 5rem;
+    height: 5rem;
+}

@@ -7,6 +7,8 @@
 
 .item:hover{
     cursor: pointer;
+    background-color: var(--lightGrey);
+    transition: 0.1s;
 }
 
 .player-list-card{

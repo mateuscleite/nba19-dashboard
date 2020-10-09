@@ -1,5 +1,5 @@
-<app-search-bar [placeholderText]="'Search for a team..'"
-    (requestSearch)="searchTeam($event)">
+<app-search-bar [placeholderText]="'Search for a team..'" 
+    (requestSearch)="newSearch($event)">
 </app-search-bar>
 <div class="list">
     <div class="item card" *ngFor="let team of teams" [routerLink]="[team['team_id']]">

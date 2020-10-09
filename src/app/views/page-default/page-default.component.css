@@ -1,4 +1,5 @@
 .page-default{
+    
     display: grid;
     grid-template-columns: 5rem 1fr;
     height: 100vh;
@@ -15,6 +16,9 @@ app-navigation-bar{
 }
 
 app-content{
+    background: url('../../../assets/images/background.jpg') no-repeat center;
+    background-size: contain;
+    background-attachment: fixed;
     background-color: var(--lightGrey);
     background-size: 100% 100%;
     height: 100%;
