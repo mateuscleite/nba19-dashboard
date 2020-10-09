@@ -40,6 +40,12 @@ export class Paginator {
                     this.offset = 0
                 }
                 break;
+            case('first'):
+                this.offset = 0
+                break;
+            case('last'):
+                this.offset = this.limit*Math.floor(this.count/this.limit)
+                break;
             default:
                 return;
         }

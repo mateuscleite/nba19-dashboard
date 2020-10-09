@@ -1,3 +1,4 @@
+import { SearchPlayerComponent } from './views/search-player/search-player.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path:'teams', component:TeamListComponent},
   {path:'teams/:id', component:TeamDetailsComponent},
   {path:'players', component:PlayersListComponent},
-  {path:'players/:id', component:PlayerDetailsComponent}
+  {path:'players/:id', component:PlayerDetailsComponent},
+  {path:'search', component:SearchPlayerComponent}
 ];
 
 @NgModule({

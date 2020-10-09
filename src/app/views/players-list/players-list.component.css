@@ -1,42 +1,18 @@
-.list{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.item:hover{
-    cursor: pointer;
-}
-
 .icon{
     max-width: 2rem;
     max-height: 2rem;
 }
 
 .icon:hover{
+    border-radius: 2rem;
+    border: 1px solid black;
     cursor: pointer;
 }
 
-.player-list-card{
-    background-color: var(--white);
-    display: flex;
-    align-items: center;
-    width: 20%;
-    height: 6rem;
+.right{
+    margin-right: 1.5rem;
 }
 
-.name{
-    font-weight: bold;
-}
-
-.field{
-    margin-right: 1rem;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-}
-
-img {
-    max-width: 5rem;
-    max-height: 6.9rem;
+.left{
+    margin-left: 1.5rem;
 }

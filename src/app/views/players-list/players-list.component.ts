@@ -7,7 +7,7 @@ import { NbaService } from 'src/app/services/nba.service';
 @Component({
   selector: 'app-players-list',
   templateUrl: './players-list.component.html',
-  styleUrls: ['./players-list.component.css', '../../styles/card.css']
+  styleUrls: ['./players-list.component.css', '../../styles/card.css', '../../styles/player-card-list.css']
 })
 export class PlayersListComponent implements OnInit {
 
@@ -57,6 +57,30 @@ export class PlayersListComponent implements OnInit {
     this.playersDisplayed = this.page.getPage('previous')
     this.offset = this.page.getOffset()
     this.router.navigate(['/players'], {queryParams: {offset: this.offset}});
+  }
+
+  firstPage(){
+    this.playersDisplayed = this.page.getPage('first')
+    this.offset = this.page.getOffset()
+    this.router.navigate(['/players'], {queryParams: {offset: this.offset}});
+  }
+
+  lastPage(){
+    this.playersDisplayed = this.page.getPage('last')
+    this.offset = this.page.getOffset()
+    this.router.navigate(['/players'], {queryParams: {offset: this.offset}});
+  }
+
+  searchPlayer(parameter){
+    console.log(parameter)
+    if(parameter !== ''){
+      this.router.navigate(['/search'], {queryParams: {type: 'player', search: parameter}});
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+    this.querySubscription.unsubscribe();
   }
 
 }

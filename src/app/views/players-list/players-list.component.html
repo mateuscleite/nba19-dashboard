@@ -1,4 +1,14 @@
-<app-search-bar [placeholderText]="'Search for a player..'"></app-search-bar>
+<app-search-bar id ='top' [placeholderText]="'Search for a player..'"
+    (requestSearch)="searchPlayer($event)">
+</app-search-bar>
+
+<div style="text-align:center">
+    <img *ngIf="offset > 0" class="icon" src="../../../assets/icons/lastleftarrow.svg" alt="Go to first page" (click)="firstPage()">
+    <img *ngIf="offset > 0" class="icon left" src="../../../assets/icons/leftarrow.svg" alt="Go back" (click)="previousPage()">
+    <img *ngIf="offset + limit < count" class="icon right" src="../../../assets/icons/rightarrow.svg" alt="Go next" (click)="nextPage()">
+    <img *ngIf="offset + limit < count" class="icon" src="../../../assets/icons/lastrightarrow.svg" alt="Go to last page" (click)="lastPage()">
+</div>
+
 <div class="list">
     <div class="item card player-list-card" *ngFor="let player of playersDisplayed" [routerLink]="[player['player_id']]">
         <img class="field" src='{{ player["photo_url"] }}'>
@@ -8,7 +18,10 @@
         </div>
     </div>
 </div>
+
 <div style="text-align:center">
-    <img class="icon" src="../../../assets/icons/leftarrow.svg" alt="Go back" (click)="previousPage()">
-    <img class="icon" src="../../../assets/icons/rightarrow.svg" alt="Go next" (click)="nextPage()">
+    <img *ngIf="offset > 0" class="icon" src="../../../assets/icons/lastleftarrow.svg" alt="Go to first page" (click)="firstPage()">
+    <img *ngIf="offset > 0" class="icon left" src="../../../assets/icons/leftarrow.svg" alt="Go back" (click)="previousPage()">
+    <img *ngIf="offset + limit < count" class="icon right" src="../../../assets/icons/rightarrow.svg" alt="Go next" (click)="nextPage()">
+    <img *ngIf="offset + limit < count" class="icon" src="../../../assets/icons/lastrightarrow.svg" alt="Go to last page" (click)="lastPage()">
 </div>

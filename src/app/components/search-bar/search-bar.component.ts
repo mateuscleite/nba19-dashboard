@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
@@ -10,9 +10,25 @@ export class SearchBarComponent implements OnInit {
   @Input()
   placeholderText: String;
   
-  constructor() { }
+  @Output() 
+  requestSearch = new EventEmitter();
+
+  text: string;
+
+  constructor() {
+    this.text = ''
+  }
 
   ngOnInit(): void {
   }
 
+  updateSearch(searchField: string){
+    this.text = searchField.trim().toUpperCase();
+  }
+
+  searchItem(searchField: string){
+    this.text = searchField.trim().toUpperCase();
+    console.log("Sending: " + this.text)
+    this.requestSearch.emit(this.text)
+  }
 }

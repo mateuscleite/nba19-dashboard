@@ -27,5 +27,7 @@ app.use((req, res, next) => {
 
 app.get('/players', db.getPlayers)
 app.get('/players/:id', db.getPlayerById)
+app.get('/players/name/:name', db.getPlayerByName)
 app.get('/teams', db.getTeams)
 app.get('/teams/:id', db.getTeamById)
+app.get('/teams/name/:name', db.getTeamByName)

@@ -19,6 +19,10 @@ export class NbaService {
     return this.http.get<any>(`${this.API}players/${id}`)
   }
 
+  getPlayersSearch(name: string){
+    return this.http.get<any>(`${this.API}players/name/${name}`)
+  }
+
   getTeamsList(){
     return this.http.get<any[]>(`${this.API}teams`)
   }
@@ -27,4 +31,7 @@ export class NbaService {
     return this.http.get<any>(`${this.API}teams/${id}`)
   }
 
+  getTeamsSearch(name: string){
+    return this.http.get<any>(`${this.API}teams/name/${name}`)
+  }
 }

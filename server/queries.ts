@@ -36,6 +36,20 @@ const getPlayerById = (req, res) => {
         })
 }
 
+const getPlayerByName = (req, res) => {
+    const name = req.params.name
+
+    pool.query("SELECT * FROM players p \
+                    JOIN teams t on p.team_id = t.team_id \
+                    WHERE UPPER(CONCAT(p.first_name, ' ', p.last_name)) LIKE UPPER('%'|| $1 ||'%')", [name],
+        (error, results) => {
+            if (error){
+                throw error
+            }
+            res.status(200).json(results.rows)
+        })
+}
+
 const getTeams = (req, res) => {
     pool.query('SELECT * FROM teams ORDER BY city ASC',
         (error, results) => {
@@ -60,9 +74,24 @@ const getTeamById = (req, res) => {
         })
 }
 
+const getTeamByName = (req, res) => {
+    const name = req.params.name
+
+    pool.query("SELECT * FROM teams t \
+                    WHERE UPPER(CONCAT(t.city, ' ', t.name)) LIKE UPPER('%'|| $1 ||'%')", [name],
+        (error, results) => {
+            if (error){
+                throw error
+            }
+            res.status(200).json(results.rows)
+        })
+}
+
 module.exports = {
     getPlayers,
     getPlayerById,
+    getPlayerByName,
     getTeams,
-    getTeamById
+    getTeamById,
+    getTeamByName
 }

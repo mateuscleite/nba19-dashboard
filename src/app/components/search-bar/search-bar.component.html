@@ -1,9 +1,11 @@
 <div class="search-container">
     <div class="search-bar">
-        <input #search class="search-text" type="text" [placeholder]="placeholderText"
+        <input class="search-text" type="text" [placeholder]="placeholderText"
             #search 
+            (keyup)="updateSearch(search.value)"
+            (keyup.enter)="searchItem(search.value)"
         >
-        <img class="search-img" src="../../../assets/icons/search.png">
+        <img class="search-img" src="../../../assets/icons/search.png" (click)="searchItem(search.value)">
         <span></span>
     </div>
 </div>
