@@ -32,7 +32,7 @@ export class PlayersListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.titleService.setTitle("Players")
+    this.titleService.setTitle("NBA Players")
     this.querySubscription = this.getCurrentOffset();
     this.loadPlayers()
   }

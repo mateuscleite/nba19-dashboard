@@ -23,7 +23,7 @@ export class TeamListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadTeams()
-    this.titleService.setTitle("Teams")
+    this.titleService.setTitle("NBA Teams")
   }
 
   loadTeams(){

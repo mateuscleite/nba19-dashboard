@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -16,7 +17,7 @@ export class SearchPlayerComponent implements OnInit {
   subscription: Subscription;
   querySubscription: Subscription;
   
-  constructor(private route: ActivatedRoute, private router: Router, private service: NbaService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private service: NbaService, private titleService: Title) { }
 
   ngOnInit(): void {
     this.querySubscription = this.getQueryParams();
@@ -25,6 +26,7 @@ export class SearchPlayerComponent implements OnInit {
 
   searchPlayers(){
     this.router.navigate(['/search'], {queryParams: {type: 'player', search: this.parameter}})
+    this.titleService.setTitle(`Searching player: ${this.parameter}`);
     this.subscription = this.service.getPlayersSearch(this.parameter).subscribe(response =>{
       this.players = response
     })
