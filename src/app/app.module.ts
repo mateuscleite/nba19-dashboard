@@ -21,7 +21,8 @@ import { PositionPipe } from './pipes/position.pipe';
 import { HeightInMetersPipe } from './pipes/height-in-meters.pipe';
 import { AgePipe } from './pipes/age.pipe';
 import { WeightInKgPipe } from './pipes/weight-in-kg.pipe';
-import { LoadingComponent } from './components/loading/loading.component'
+import { LoadingComponent } from './components/loading/loading.component';
+import { ResourceNotFoundComponent } from './components/resource-not-found/resource-not-found.component'
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { LoadingComponent } from './components/loading/loading.component'
     HeightInMetersPipe,
     AgePipe,
     WeightInKgPipe,
-    LoadingComponent
+    LoadingComponent,
+    ResourceNotFoundComponent
   ],
   imports: [
     BrowserModule,

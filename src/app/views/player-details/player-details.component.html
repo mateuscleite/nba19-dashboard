@@ -4,7 +4,9 @@
         <app-loading></app-loading>
     </div>
 
-    <div *ngSwitchCase='"empty-data"'>No data available</div>
+    <div *ngSwitchCase='"empty-data"'>
+        <app-resource-not-found></app-resource-not-found>
+    </div>
     
     <div *ngSwitchCase='"done"' class="card detail-card" 
         style=" --primaryColor: #{{ player['primary_color'] }}; 
