@@ -2,7 +2,7 @@
     style=" --primaryColor: #{{ team['primary_color'] }}; 
             --secondaryColor: #{{ team['secondary_color'] }};
             --tertiaryColor:  #{{ team['tertiary_color'] }};">
-            
+
     <div class="banner">
         <img class="logo" src='{{ team["wikipedia_logo_url"] }}'>
     </div>
@@ -39,6 +39,16 @@
         <div class="stat-info">
             <p class="title">Season</p> 
             <span>{{ team['season_type'] | seasonType }}</span>
+        </div>
+    </div>
+    <p class="title">Lineup</p>
+    <div class="list">
+        <div class="item card player-list-card" *ngFor="let player of players" [routerLink]="['/players',player['player_id']]">
+            <img class="field" src='{{ player["photo_url"] }}'>
+            <div>
+                <p class="name">{{ player['first_name'] }} {{ player['last_name'] }}</p>
+                <p>{{ player['position'] | position }}</p>
+            </div>
         </div>
     </div>
 </div>

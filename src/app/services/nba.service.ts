@@ -34,4 +34,8 @@ export class NbaService {
   getTeamsSearch(name: string){
     return this.http.get<any>(`${this.API}teams/name/${name}`)
   }
+
+  getTeamLineup(id: number){
+    return this.http.get<any[]>(`${this.API}teams/${id}/lineup`)
+  }
 }

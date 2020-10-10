@@ -7,12 +7,14 @@ import { NbaService } from './../../services/nba.service';
 @Component({
   selector: 'app-team-details',
   templateUrl: './team-details.component.html',
-  styleUrls: ['./team-details.component.css', '../../styles/card.css', '../../styles/stats-box.css']
+  styleUrls: ['./team-details.component.css', '../../styles/card.css', '../../styles/stats-box.css', '../../styles/player-card-list.css']
 })
 export class TeamDetailsComponent implements OnInit {
 
   team: any = new Object();
+  players: any[] = new Array(); 
   subscription: Subscription;
+  lineupSubscription: Subscription;
 
   constructor(private route: ActivatedRoute, private router: Router, private service: NbaService, private titleService: Title) { }
 
@@ -24,16 +26,25 @@ export class TeamDetailsComponent implements OnInit {
     this.subscription = this.route.params.subscribe((params: any) => {
           this.team['team_id'] = parseInt(params['id'])
           this.service.getTeamDetails(this.team['team_id']).subscribe(response => {
-            this.team = response[0]
-            let title: string = `${this.team['name']}`
+            this.team = response[0];
+            let title: string = `${this.team['name']}`;
             this.titleService.setTitle(title);
             console.log(this.team)
+            this.loadTeamLineup();
           })
         })
   }
 
+  loadTeamLineup(){
+    this.lineupSubscription = this.service.getTeamLineup(this.team['team_id']).subscribe(response =>{
+      this.players = response;
+      console.log(this.players)
+    })
+  }
+
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+    this.lineupSubscription.unsubscribe();
   }
 
 }

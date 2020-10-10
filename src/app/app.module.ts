@@ -16,7 +16,8 @@ import { PlayerDetailsComponent } from './views/player-details/player-details.co
 import { SearchPlayerComponent } from './views/search-player/search-player.component';
 import { SearchTeamComponent } from './views/search-team/search-team.component';
 import { RatioPipe } from './pipes/ratio.pipe';
-import { SeasonTypePipe } from './pipes/season-type.pipe'
+import { SeasonTypePipe } from './pipes/season-type.pipe';
+import { PositionPipe } from './pipes/position.pipe'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SeasonTypePipe } from './pipes/season-type.pipe'
     SearchPlayerComponent,
     SearchTeamComponent,
     RatioPipe,
-    SeasonTypePipe
+    SeasonTypePipe,
+    PositionPipe
   ],
   imports: [
     BrowserModule,
