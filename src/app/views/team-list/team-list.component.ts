@@ -12,6 +12,7 @@ import { NbaService } from './../../services/nba.service';
 export class TeamListComponent implements OnInit {
 
   teams: any[] = new Array();
+  loadingState: string;
   subscription: Subscription;
 
   constructor(
@@ -19,6 +20,7 @@ export class TeamListComponent implements OnInit {
     private service: NbaService, 
     private titleService: Title) { 
 
+      this.loadingState = 'loading'
   }
 
   ngOnInit(): void {
@@ -30,6 +32,7 @@ export class TeamListComponent implements OnInit {
     this.subscription = this.service.getTeamsList()
       .subscribe(response =>{
         this.teams = response
+        this.loadingState = 'done'
         console.log(this.teams)
       })
   }

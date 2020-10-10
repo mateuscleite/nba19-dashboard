@@ -17,6 +17,7 @@ export class PlayersListComponent implements OnInit {
   count: number;
   offset: number;
   limit: number;
+  loadingState: string;
   page: Paginator;
   subscription: Subscription;
   querySubscription: Subscription;
@@ -26,9 +27,10 @@ export class PlayersListComponent implements OnInit {
     private router: Router, 
     private service: NbaService, 
     private titleService: Title) { 
-    
+      
       this.offset = 0;
       this.limit = 40;
+      this.loadingState= 'loading'
   }
 
   ngOnInit(): void {
@@ -45,6 +47,7 @@ export class PlayersListComponent implements OnInit {
         this.page = new Paginator(this.players, this.playersDisplayed, this. count, this.offset, this.limit);
         this.playersDisplayed = this.page.getPage('current')
         this.offset = this.page.getOffset()
+        this.loadingState = 'done'
       })
   }
 

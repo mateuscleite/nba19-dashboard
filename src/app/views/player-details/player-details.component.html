@@ -1,7 +1,11 @@
 
 <div [ngSwitch]="loadingState">
-    <div *ngSwitchCase='"loading"'>Loading</div>
+    <div *ngSwitchCase='"loading"'>
+        <app-loading></app-loading>
+    </div>
+
     <div *ngSwitchCase='"empty-data"'>No data available</div>
+    
     <div *ngSwitchCase='"done"' class="card detail-card" 
         style=" --primaryColor: #{{ player['primary_color'] }}; 
                 --secondaryColor: #{{ player['secondary_color'] }};

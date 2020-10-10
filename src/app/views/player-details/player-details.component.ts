@@ -9,7 +9,6 @@ import { NbaService } from 'src/app/services/nba.service';
   templateUrl: './player-details.component.html',
   styleUrls: ['./player-details.component.css', 
   '../../styles/details.css', 
-  '../../styles/loading.css',
   '../../styles/card.css'
 ]
 })

@@ -1,9 +1,19 @@
 <app-search-bar [placeholderText]="'Search for a team..'"
     (requestSearch)="searchTeam($event)">
 </app-search-bar>
-<div class="list">
-    <div class="item card" *ngFor="let team of teams" [routerLink]="[team['team_id']]">
-        <img src='{{ team["wikipedia_logo_url"] }}'>
-        <p>{{ team['city'] }} {{ team['name'] }}</p>
+
+<div [ngSwitch]="loadingState">
+
+    <div *ngSwitchCase='"loading"'>
+        <app-loading></app-loading>
+    </div>
+
+    <div *ngSwitchCase='"done"'>
+        <div class="list">
+            <div class="item card" *ngFor="let team of teams" [routerLink]="[team['team_id']]">
+                <img src='{{ team["wikipedia_logo_url"] }}'>
+                <p>{{ team['city'] }} {{ team['name'] }}</p>
+            </div>
+        </div>
     </div>
 </div>
