@@ -46,7 +46,7 @@
                 <span>{{ team['season_type'] | seasonType }}</span>
             </div>
         </div>
-        <p class="title">Lineup</p>
+        <p class="title">Roster</p>
         <div class="list">
             <div class="item card player-list-card" *ngFor="let player of players" [routerLink]="['/players',player['player_id']]">
                 <img class="field" src='{{ player["photo_url"] }}'>

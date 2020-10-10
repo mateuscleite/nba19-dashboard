@@ -7,7 +7,7 @@ export class PositionPipe implements PipeTransform {
 
   transform(abbrevPosition: string): string {
     let position : string = '';
-    switch(abbrevPosition.toUpperCase()){
+    switch(abbrevPosition){
       case('PG'):
         position = 'Point Guard';
         break;

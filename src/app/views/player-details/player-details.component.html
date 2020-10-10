@@ -13,7 +13,9 @@
     
         <div class="player-banner">
             <img class="picture" src='{{ player["photo_url"] }}'>
+            <img class="logo" src='{{ player["wikipedia_logo_url"] }}'>
         </div>
+
         <div class="stats stats-box">
             <div class="player-info">
                 <p class="title">Name</p> 
@@ -24,6 +26,7 @@
                 <span>{{ player['team_name'] }}</span>
             </div>
         </div>
+
         <div class="stats stats-box">
             <div class="stat-info">
                 <p class="title">Age</p> 
@@ -41,7 +44,71 @@
                 <p class="title">Position</p> 
                 <span>{{ player['position'] | position }}</span>
             </div>
+            <div class="stat-info">
+                <p class="title">Games Played</p> 
+                <span>{{ player['games'] }}</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Starting Lineup in</p> 
+                <span>{{ player['started'] }}</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Minutes per Game</p> 
+                <span>{{ player['minutes'] | ratio: player['games'] }}</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Years in the NBA</p> 
+                <span>{{ player['experience'] }}</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Assists</p> 
+                <span>{{ player['assists'] }}</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Assists Percentage</p> 
+                <span>{{ player['assists_percentage'] }} %</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Blocked Shots</p> 
+                <span>{{ player['blocked_shots'] }}</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Blocked Shots Percentage</p> 
+                <span>{{ player['blocks_percentage'] }} %</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Defensive Rebounds</p> 
+                <span>{{ player['defensive_rebounds'] }}</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Defensive Rebounds Percentage</p> 
+                <span>{{ player['defensive_rebounds_percentage'] }} %</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Offensive Rebounds</p> 
+                <span>{{ player['offensive_rebounds'] }}</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Offensive Rebounds Percentage</p> 
+                <span>{{ player['offensive_rebounds_percentage'] }} %</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Two Pointers Attempted</p> 
+                <span>{{ player['two_pointers_attempted'] }}</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Two Pointers Made</p> 
+                <span>{{ player['two_pointers_made'] }}</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Three Pointers Attempted</p> 
+                <span>{{ player['three_pointers_attempted'] }}</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Three Pointers Made</p> 
+                <span>{{ player['three_pointers_made'] }}</span>
+            </div>
+
         </div>
     </div>
-
 </div>
