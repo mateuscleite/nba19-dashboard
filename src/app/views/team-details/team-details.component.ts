@@ -7,7 +7,7 @@ import { NbaService } from './../../services/nba.service';
 @Component({
   selector: 'app-team-details',
   templateUrl: './team-details.component.html',
-  styleUrls: ['./team-details.component.css']
+  styleUrls: ['./team-details.component.css', '../../styles/card.css', '../../styles/stats-box.css']
 })
 export class TeamDetailsComponent implements OnInit {
 

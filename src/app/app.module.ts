@@ -14,7 +14,9 @@ import { PlayersListComponent } from './views/players-list/players-list.componen
 import { TeamDetailsComponent } from './views/team-details/team-details.component';
 import { PlayerDetailsComponent } from './views/player-details/player-details.component';
 import { SearchPlayerComponent } from './views/search-player/search-player.component';
-import { SearchTeamComponent } from './views/search-team/search-team.component'
+import { SearchTeamComponent } from './views/search-team/search-team.component';
+import { RatioPipe } from './pipes/ratio.pipe';
+import { SeasonTypePipe } from './pipes/season-type.pipe'
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { SearchTeamComponent } from './views/search-team/search-team.component'
     TeamDetailsComponent,
     PlayerDetailsComponent,
     SearchPlayerComponent,
-    SearchTeamComponent
+    SearchTeamComponent,
+    RatioPipe,
+    SeasonTypePipe
   ],
   imports: [
     BrowserModule,

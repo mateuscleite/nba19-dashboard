@@ -1,1 +1,44 @@
-<p>team-details works!</p>
+<div class="card team-detail-card" 
+    style=" --primaryColor: #{{ team['primary_color'] }}; 
+            --secondaryColor: #{{ team['secondary_color'] }};
+            --tertiaryColor:  #{{ team['tertiary_color'] }};">
+            
+    <div class="banner">
+        <img class="logo" src='{{ team["wikipedia_logo_url"] }}'>
+    </div>
+    
+    <div class="stats stats-box">
+        <div class="stat-info">
+            <p class="title">Conference</p> 
+            <span>{{ team['conference'] }}</span>
+        </div>
+        <div class="stat-info">
+            <p class="title">Division</p> 
+            <span>{{ team['division'] }}</span>
+        </div>
+        <div class="stat-info">
+            <p class="title">Wins (W) - Losses (L)</p> 
+            <span>{{ team['wins'] }} - {{ team['losses'] }}</span>
+        </div>
+        <div class="stat-info">
+            <p class="title">W/L Ratio</p> 
+            <span>{{ team['wins'] | ratio: team['losses']}}</span>
+        </div>
+        <div class="stat-info">
+            <p class="title">Points per Game (PPG)</p> 
+            <span>{{ team['points'] | ratio: team['games']}}</span>
+        </div>
+        <div class="stat-info">
+            <p class="title">Opponent's PPG</p> 
+            <span>{{ team['opponent_stat_points'] | ratio: team['games']}}</span>
+        </div>
+        <div class="stat-info">
+            <p class="title">Rebounds per Game</p> 
+            <span>{{ team['rebounds'] | ratio: team['games']}}</span>
+        </div>
+        <div class="stat-info">
+            <p class="title">Season</p> 
+            <span>{{ team['season_type'] | seasonType }}</span>
+        </div>
+    </div>
+</div>
