@@ -50,7 +50,6 @@ export class Paginator {
                 return;
         }
 
-        console.log(this.offset);
         while(this.pageData.length > 0){
             this.pageData.pop();
         }

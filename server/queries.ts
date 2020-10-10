@@ -25,8 +25,9 @@ const getPlayers = (req, res) => {
 const getPlayerById = (req, res) => {
     const id = req.params.id
 
-    pool.query('SELECT * FROM players p \
+    pool.query('SELECT p.*, ps.*, CONCAT(t.city, \' \', t.name) as team_name, t.primary_color, t.secondary_color, t.wikipedia_logo_url FROM players p \
                     JOIN player_stats ps ON p.player_id = ps.player_id \
+                    JOIN teams t ON p.team_id = t.team_id\
                     WHERE p.player_id = $1', [id],
         (error, results) => {
             if (error){

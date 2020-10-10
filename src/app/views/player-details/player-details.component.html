@@ -1,1 +1,43 @@
-<p>player-details works!</p>
+
+<div [ngSwitch]="loadingState">
+    <div *ngSwitchCase='"loading"'>Loading</div>
+    <div *ngSwitchCase='"empty-data"'>No data available</div>
+    <div *ngSwitchCase='"done"' class="card detail-card" 
+        style=" --primaryColor: #{{ player['primary_color'] }}; 
+                --secondaryColor: #{{ player['secondary_color'] }};
+                --tertiaryColor:  #{{ player['tertiary_color'] }};">
+    
+        <div class="player-banner">
+            <img class="picture" src='{{ player["photo_url"] }}'>
+        </div>
+        <div class="stats stats-box">
+            <div class="player-info">
+                <p class="title">Name</p> 
+                <span>{{ player['first_name'] }} {{ player['last_name'] }}</span>
+            </div>
+            <div class="player-info">
+                <p class="title">Team</p> 
+                <span>{{ player['team_name'] }}</span>
+            </div>
+        </div>
+        <div class="stats stats-box">
+            <div class="stat-info">
+                <p class="title">Age</p> 
+                <span>{{ player['birth_date'] | age }}</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Height</p> 
+                <span>{{ player['height'] | heightInMeters }}m ({{player['height']}} in)</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Weight</p> 
+                <span>{{ player['weight'] | weightInKg }}</span>
+            </div>
+            <div class="stat-info">
+                <p class="title">Position</p> 
+                <span>{{ player['position'] | position }}</span>
+            </div>
+        </div>
+    </div>
+
+</div>

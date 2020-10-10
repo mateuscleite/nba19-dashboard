@@ -7,18 +7,23 @@ import { NbaService } from './../../services/nba.service';
 @Component({
   selector: 'app-team-details',
   templateUrl: './team-details.component.html',
-  styleUrls: ['./team-details.component.css', '../../styles/card.css', '../../styles/stats-box.css', '../../styles/player-card-list.css']
+  styleUrls: ['./team-details.component.css', 
+    '../../styles/card.css', 
+    '../../styles/player-card-list.css',
+    '../../styles/details.css']
 })
 export class TeamDetailsComponent implements OnInit {
 
   team: any = new Object();
   players: any[] = new Array(); 
+  loadingState: string;
   subscription: Subscription;
   lineupSubscription: Subscription;
 
   constructor(private route: ActivatedRoute, private router: Router, private service: NbaService, private titleService: Title) { }
 
   ngOnInit(): void {
+    this.loadingState = 'loading'
     this.loadTeamsDetails();
   }
 
@@ -38,6 +43,7 @@ export class TeamDetailsComponent implements OnInit {
   loadTeamLineup(){
     this.lineupSubscription = this.service.getTeamLineup(this.team['team_id']).subscribe(response =>{
       this.players = response;
+      this.loadingState = 'done'
       console.log(this.players)
     })
   }
