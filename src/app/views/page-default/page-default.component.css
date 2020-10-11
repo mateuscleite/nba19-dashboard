@@ -1,5 +1,4 @@
 .page-default{
-    
     display: grid;
     grid-template-columns: 5rem 1fr;
     height: 100vh;
@@ -24,4 +23,21 @@ app-content{
     height: 100%;
     width:100%;
     grid-column-start: 2;
+}
+
+@media (max-width: 800px){
+    .page-default{
+        display:flex;
+        flex-direction: column;
+    }
+
+    app-navigation-bar{
+        max-height: 100%;
+        width: 100%;
+        position: static;
+        flex: 0;
+    }
+    app-content{
+        flex: 1;
+    }
 }

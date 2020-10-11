@@ -42,3 +42,18 @@ app-search-bar{
     color: var(--lightGrey);
     transition: 0.3s;
 }
+
+@media (max-width: 800px){
+    .home{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .home-card{
+        flex: 1;
+        align-items: center;
+        height:8rem;
+        justify-content: space-around;
+    }
+
+}

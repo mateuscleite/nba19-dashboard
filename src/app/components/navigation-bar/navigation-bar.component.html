@@ -1,8 +1,11 @@
 <div>
-    <ul>
-        <li routerLink=''>Home</li>
-        <li routerLink='teams'>Teams</li>
-        <li routerLink='players' [queryParams]="{offset: 0}">Players</li>
+    <span>
+        <img (click)='showMenu()'  src='../../assets/icons/menu.svg' alt='Menu'>
+    </span>
+    <ul *ngIf='menuActive'>
+        <li routerLink='' (click)='showMenu()'>Home</li>
+        <li routerLink='teams' (click)='showMenu()'>Teams</li>
+        <li routerLink='players' [queryParams]="{offset: 0}" (click)='showMenu()'>Players</li>
         <li>About</li>
     </ul>
 </div>

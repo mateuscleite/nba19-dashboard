@@ -1,0 +1,29 @@
+.player-banner{
+    background-image: linear-gradient(var(--primaryColor), var(--secondaryColor));
+    width: 100%;
+    height: 10rem;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; 
+}
+
+.picture{
+    height: 8rem;
+}
+
+.player-info{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    text-align: center;
+    width: 50%;
+    padding-bottom: 1rem;
+}
+
+@media (max-width: 800px){
+    .player-info{
+        width: 100%;
+    }  
+}
