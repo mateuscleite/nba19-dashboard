@@ -7,9 +7,6 @@
 }
 
 .loading {
-    background: url('../../../assets/images/basketball.png') no-repeat center;
-    background-size: contain;
-    background-attachment: fixed;
     width: 6rem;
     height: 6rem;
     animation: spin 2s linear infinite;
