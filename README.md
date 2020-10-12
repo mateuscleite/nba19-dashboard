@@ -49,5 +49,5 @@ Access [NBA19-dashboard](https://nba19-dashboard.mateuscleite.vercel.app/) to se
 
 Frontend deployment was made using [Vercel](https://vercel.com/)
 
-Backend deployment was made using [Heroku](www.heroku.com)
+Backend deployment was made using [Heroku](https://www.heroku.com)
 
