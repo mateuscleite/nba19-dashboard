@@ -26,13 +26,14 @@ export class CompareTeamsComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this.loadTeamsStats()
-    this.titleService.setTitle('2019 Season Info')
+    this.titleService.setTitle('NBA 2019 Season Info')
   }
 
-  //gets only one property from items ins an array
+  //gets only one property from items in an array
   pluck(array: any[], key: string) {
     return array.map(item =>  item[key]);
   }
+  //returns an object in the format expected by the BarChart component
   pluckData(array: any[], data: string, label: string){
     return array.map(item => {
       return {data: [item[data]], label: item[label]}
@@ -44,22 +45,22 @@ export class CompareTeamsComponent implements OnInit {
       this.teams = response
       this.primary_color = this.pluck(this.teams, "primary_color")
       this.loadWinsData()
-      this.loadTwoPointersData()
-      this.loadThreePointersData()
-      this.loadingState = 'done'
     })
   }
 
   loadWinsData(){
     this.wins = this.pluckData(this.teams, "wins", "name")
+    this.loadTwoPointersData()
   }
 
   loadTwoPointersData(){
     this.twoPointersPercentage = this.pluckData(this.teams, "two_pointers_percentage", "name")
+    this.loadThreePointersData()
   }
 
   loadThreePointersData(){
     this.threePointersPercentage = this.pluckData(this.teams, "three_pointers_percentage", "name")
+    this.loadingState = 'done'
   }
 
   ngOnDestroy(): void {

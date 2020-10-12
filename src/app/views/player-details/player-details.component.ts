@@ -30,7 +30,7 @@ export class PlayerDetailsComponent implements OnInit {
     this.subscription = this.route.params.subscribe((params: any) => {
       this.player['player_id'] = parseInt(params['id'])
       this.service.getPlayerDetails(this.player['player_id']).subscribe(response => {
-        
+        //if there are no stats available in the database return 'empty-data'; else return 'done'
         if(response.length === 0){
           this.loadingState = 'empty-data'
         }

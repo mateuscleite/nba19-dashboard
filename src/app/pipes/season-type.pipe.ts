@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SeasonTypePipe implements PipeTransform {
 
+  //seasons in the database are classified by number, this pipe translates this code
   transform(season: number): string {
     let seasonType: string = ''
     switch(season){

@@ -19,6 +19,7 @@ export class AgePipe implements PipeTransform {
     // returns the year (four digits)
     let currentYear: number = currentDate.getFullYear()
     let age: number;
+    //check if birthday date has already passed (only checks the month)
     if(currentMonth > playerMonth){
       age = currentYear - playerYear
     }

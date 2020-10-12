@@ -20,6 +20,7 @@ export class NavigationBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //gets the size of the window and makes the necessary adjustments
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
         this.screenHeight = window.innerHeight;
@@ -32,7 +33,7 @@ export class NavigationBarComponent implements OnInit {
         }
   }
 
-
+  //toggle menu on/off
   showMenu(){
     if(this.screenWidth <= 800){
       this.menuActive = !this.menuActive

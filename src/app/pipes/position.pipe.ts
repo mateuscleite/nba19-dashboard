@@ -5,6 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PositionPipe implements PipeTransform {
 
+  //gets an abbreviated position name and returns its full name
   transform(abbrevPosition: string): string {
     let position : string = '';
     switch(abbrevPosition){

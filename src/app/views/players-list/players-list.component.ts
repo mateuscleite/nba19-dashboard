@@ -51,6 +51,7 @@ export class PlayersListComponent implements OnInit {
       })
   }
 
+  //gets the current page
   getCurrentOffset(){
     return this.route.queryParams.subscribe(queryParams => {
       this.offset = parseInt(queryParams['offset'])
@@ -69,12 +70,14 @@ export class PlayersListComponent implements OnInit {
     this.router.navigate(['/players'], {queryParams: {offset: this.offset}});
   }
 
+  //shows the first players on the list
   firstPage(){
     this.playersDisplayed = this.page.getPage('first')
     this.offset = this.page.getOffset()
     this.router.navigate(['/players'], {queryParams: {offset: this.offset}});
   }
 
+  //shows the last players in the list
   lastPage(){
     this.playersDisplayed = this.page.getPage('last')
     this.offset = this.page.getOffset()

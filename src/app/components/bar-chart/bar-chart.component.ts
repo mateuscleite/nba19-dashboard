@@ -58,21 +58,9 @@ export class BarChartComponent implements OnInit {
 
     this.colors = this.colorfy()
 
-    /*
-    this.labels = ['A', 'B', 'C']
-    
-    this.data = [
-      {data: [1, 2, 3], label: 'A'},
-      {data: [4, 5, 6], label: 'B'}
-    ]
-
-    this.colors = [
-      { backgroundColor:"red" },
-      { backgroundColor:"green" } 
-    ]; 
-    */
   }
 
+  //gets the size of the screen and makes necessary adjustments
   @HostListener('window:resize', ['$event'])
   getScreenSize(event?) {
         this.screenHeight = window.innerHeight;

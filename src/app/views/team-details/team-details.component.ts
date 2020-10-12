@@ -43,7 +43,6 @@ export class TeamDetailsComponent implements OnInit {
             this.team = response[0];
             let title: string = `${this.team['name']}`;
             this.titleService.setTitle(title);
-            this.loadPointsByPosition();
             this.loadTeamLineup();
           })
         })
@@ -52,7 +51,7 @@ export class TeamDetailsComponent implements OnInit {
   loadTeamLineup(){
     this.lineupSubscription = this.service.getTeamLineup(this.team['team_id']).subscribe(response =>{
       this.players = response;
-      this.loadingState = 'done'
+      this.loadPointsByPosition()
     })
   }
 
@@ -61,6 +60,7 @@ export class TeamDetailsComponent implements OnInit {
       this.pointsByPosition = response
       this.position = this.pluck(this.pointsByPosition, 'position')
       this.pointsByPosition = this.pluck(this.pointsByPosition, 'total_points')
+      this.loadingState = 'done'
     })
   }
 
