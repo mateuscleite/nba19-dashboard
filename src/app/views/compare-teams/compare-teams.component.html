@@ -1,0 +1,11 @@
+<div [ngSwitch]="loadingState">
+    <div *ngSwitchCase='"loading"'>
+        <app-loading></app-loading>
+    </div>
+    <div *ngSwitchCase='"done"'>
+        <app-bar-chart 
+            [dataInput]='wins' 
+            [labelsInput]="['Wins']" 
+            [colorsInput]='primary_color' >
+        </app-bar-chart>
+    </div>

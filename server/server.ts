@@ -27,15 +27,18 @@ app.use((req, res, next) => {
 
 //list of players
 app.get('/players', db.getPlayers)
-//details of a player
-app.get('/players/:id', db.getPlayerById)
 //search player by name
 app.get('/players/name/:name', db.getPlayerByName)
+//details of a player
+app.get('/players/:id', db.getPlayerById)
+
 //list of teams
 app.get('/teams', db.getTeams)
-//details of a team
-app.get('/teams/:id', db.getTeamById)
+//get the stats of all teams
+app.get('/teams/stats', db.getAllTeamsStats)
 //search team by name
 app.get('/teams/name/:name', db.getTeamByName)
+//details of a team
+app.get('/teams/:id', db.getTeamById)
 //get a specific team lineup
 app.get('/teams/:id/lineup', db.getTeamLineup)

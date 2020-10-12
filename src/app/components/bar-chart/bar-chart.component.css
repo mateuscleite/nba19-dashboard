@@ -1,0 +1,12 @@
+div{
+    background-color: var(--white);
+    text-align: center;
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+@media  (max-width: 800px){
+    div{
+        height: 80vh;
+    }
+}

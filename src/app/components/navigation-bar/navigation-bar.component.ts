@@ -21,22 +21,23 @@ export class NavigationBarComponent implements OnInit {
   }
 
   @HostListener('window:resize', ['$event'])
-    getScreenSize(event?) {
-          this.screenHeight = window.innerHeight;
-          this.screenWidth = window.innerWidth;
-          if(this.screenWidth > 800){
-            this.menuActive = true;
-          }
-          else{
-            this.menuActive = false;
-          }
-          console.log(this.screenHeight, this.screenWidth);
-    }
+  getScreenSize(event?) {
+        this.screenHeight = window.innerHeight;
+        this.screenWidth = window.innerWidth;
+        if(this.screenWidth > 800){
+          this.menuActive = true;
+        }
+        else{
+          this.menuActive = false;
+        }
+  }
 
 
   showMenu(){
     console.log(this.menuActive)
-    this.menuActive = !this.menuActive
+    if(this.screenWidth <= 800){
+      this.menuActive = !this.menuActive
+    }
   }
 
 }

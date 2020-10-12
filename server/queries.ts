@@ -106,6 +106,16 @@ const getTeamLineup = (req, res) => {
         })
 }
 
+const getAllTeamsStats = (req, res) => {
+    pool.query('SELECT * FROM teams t JOIN team_stats ts ON t.team_id = ts.team_id',
+        (error, results) => {
+            if (error){
+                throw error
+            }
+            res.status(200).json(results.rows)
+        })
+}
+
 module.exports = {
     getPlayers,
     getPlayerById,
@@ -113,5 +123,6 @@ module.exports = {
     getTeams,
     getTeamById,
     getTeamByName,
-    getTeamLineup
+    getTeamLineup,
+    getAllTeamsStats
 }
