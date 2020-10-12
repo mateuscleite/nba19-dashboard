@@ -17,7 +17,7 @@ To run this project it is required to have installed in your computer:
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
-In another terminal run `ỳarn serve` for the backend server. It is located at `http://localhost:8000/`.
+In another terminal run `cd server && ỳarn serve` for the backend server. It is located at `http://localhost:8000/`.
 
 ### Using a single terminal
 
