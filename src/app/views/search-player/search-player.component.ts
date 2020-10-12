@@ -14,6 +14,7 @@ export class SearchPlayerComponent implements OnInit {
   parameter: string;
   type: string;
   players: any[] = new Array();
+  loadingState: string;
   subscription: Subscription;
   querySubscription: Subscription;
   
@@ -21,14 +22,16 @@ export class SearchPlayerComponent implements OnInit {
 
   ngOnInit(): void {
     this.querySubscription = this.getQueryParams();
+    this.loadingState = 'loading'
     this.searchPlayers();
   }
 
   searchPlayers(){
-    this.router.navigate(['/search'], {queryParams: {type: 'player', search: this.parameter}})
+    this.router.navigate(['/players/search'], {queryParams: {type: 'player', search: this.parameter}})
     this.titleService.setTitle(`Searching player: ${this.parameter}`);
     this.subscription = this.service.getPlayersSearch(this.parameter).subscribe(response =>{
       this.players = response
+      this.loadingState = 'done'
     })
   }
 
@@ -42,6 +45,7 @@ export class SearchPlayerComponent implements OnInit {
   newSearch(parameter){
     this.parameter = parameter
     if(parameter !== ''){
+      this.loadingState = 'loading'
       this.searchPlayers()
     }
   }

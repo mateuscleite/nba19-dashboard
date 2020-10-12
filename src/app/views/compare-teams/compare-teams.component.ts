@@ -38,14 +38,19 @@ export class CompareTeamsComponent implements OnInit {
   loadTeamsStats(){
     return this.service.getAllTeamsStats().subscribe(response =>{
       this.teams = response
-      this.wins = this.pluckData(this.teams, "wins", "name")
-      console.log(this.wins)
-      this.primary_color = this.pluck(this.teams, "primary_color")
+      this.loadWinsData()
       this.loadingState = 'done'
     })
   }
 
+  loadWinsData(){
+    this.wins = this.pluckData(this.teams, "wins", "name")
+    this.primary_color = this.pluck(this.teams, "primary_color")
+  }
 
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
     
 
 

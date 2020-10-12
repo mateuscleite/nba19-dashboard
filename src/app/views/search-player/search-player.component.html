@@ -2,12 +2,18 @@
     (requestSearch)="newSearch($event)">
 </app-search-bar>
 
-<div class="list">
-    <div class="item card player-list-card" *ngFor="let player of players" [routerLink]="['/players', player['player_id']]">
-        <img class="field" src='{{ player["photo_url"] }}'>
-        <div>
-            <p class="name">{{ player['first_name'] }} {{ player['last_name'] }}</p>
-            <p>{{ player['city'] }}  {{ player['name'] }}</p>
+<div [ngSwitch]="loadingState">
+    <div *ngSwitchCase='"loading"'>
+        <app-loading></app-loading>
+    </div>
+
+    <div *ngSwitchCase='"done"' class="list">
+        <div class="item card player-list-card" *ngFor="let player of players" [routerLink]="['/players', player['player_id']]">
+            <img class="field" src='{{ player["photo_url"] }}'>
+            <div>
+                <p class="name">{{ player['first_name'] }} {{ player['last_name'] }}</p>
+                <p>{{ player['city'] }}  {{ player['name'] }}</p>
+            </div>
         </div>
     </div>
 </div>

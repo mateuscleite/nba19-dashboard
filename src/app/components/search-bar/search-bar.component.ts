@@ -28,7 +28,6 @@ export class SearchBarComponent implements OnInit {
 
   searchItem(searchField: string){
     this.text = searchField.trim().toUpperCase();
-    console.log("Sending: " + this.text)
     this.requestSearch.emit(this.text)
   }
 }
