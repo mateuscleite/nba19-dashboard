@@ -1,0 +1,15 @@
+div{
+    background-color: var(--white);
+    text-align: center;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+a{
+    font-weight: bold;
+}
+
+a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}

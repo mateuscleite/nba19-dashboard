@@ -7,7 +7,7 @@
     </div>
 
     <div *ngSwitchCase='"done"' class="list">
-        <div class="item card" *ngFor="let team of teams" [routerLink]="[team['team_id']]">
+        <div class="item card" *ngFor="let team of teams" [routerLink]="['/teams',team['team_id']]">
             <img src='{{ team["wikipedia_logo_url"] }}'>
             <p>{{ team['city'] }} {{ team['name'] }}</p>
         </div>

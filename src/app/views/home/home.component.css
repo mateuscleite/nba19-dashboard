@@ -1,7 +1,7 @@
 .home{
     color:white;
     display:grid;
-    grid-template: 20rem / 1fr 1fr;
+    grid-template: 20rem 20rem / 1fr 1fr;
 }
 
 .players{
@@ -26,6 +26,18 @@
 
 .team:hover{
     cursor:pointer;
+}
+
+.season{
+    background: url('../../../assets/images/nbascreen.jpg') no-repeat center;
+    background-size: contain;
+    background-color: #D9DEDA;
+    grid-row: 2;
+    grid-column: 1;
+}
+
+.season:hover{
+    cursor: pointer;
 }
 
 app-search-bar{

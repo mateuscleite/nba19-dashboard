@@ -9,6 +9,7 @@ import { TeamDetailsComponent } from './views/team-details/team-details.componen
 import { SearchTeamComponent } from './views/search-team/search-team.component';
 import { PlayersListComponent } from './views/players-list/players-list.component';
 import { PlayerDetailsComponent } from './views/player-details/player-details.component';
+import { AboutComponent } from './views/about/about.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path:'players', component:PlayersListComponent},
   {path:'players/search', component:SearchPlayerComponent},
   {path:'players/:id', component:PlayerDetailsComponent},
-  {path:'compareTeams', component:CompareTeamsComponent}
+  {path:'seasonInfo', component:CompareTeamsComponent},
+  {path:'about', component:AboutComponent}
 ];
 
 @NgModule({

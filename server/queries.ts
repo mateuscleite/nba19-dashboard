@@ -13,11 +13,10 @@ const pool = new Pool({
 const getPlayers = (req, res) => {
     pool.connect(function (err, client, done) {
         if (err) {
-            console.error(err);
-            // should return response error like 
+            console.error(err); 
             return res.status(500).send();
         }
-        pool.query('SELECT p.*, t.city, t.name FROM players p \
+        client.query('SELECT p.*, t.city, t.name FROM players p \
                         JOIN teams t on p.team_id = t.team_id \
                         ORDER BY p.first_name',
             (error, results) => {
@@ -25,7 +24,10 @@ const getPlayers = (req, res) => {
                     res.status(500).send()
                     return done();
                 }
+                else{
                 res.status(200).json(results.rows)
+                return done();
+            }
             })
     })
 }
@@ -33,13 +35,12 @@ const getPlayers = (req, res) => {
 const getPlayerById = (req, res) => {
     pool.connect(function (err, client, done) {
         if (err) {
-            console.error(err);
-            // should return response error like 
+            console.error(err); 
             return res.status(500).send();
         }
     const id = req.params.id
 
-    pool.query('SELECT p.*, ps.*, CONCAT(t.city, \' \', t.name) as team_name, t.primary_color, t.secondary_color, t.wikipedia_logo_url, ts.games as team_games FROM players p \
+    client.query('SELECT ps.*, p.*, CONCAT(t.city, \' \', t.name) as team_name, t.primary_color, t.secondary_color, t.wikipedia_logo_url, ts.games as team_games FROM players p \
                     JOIN player_stats ps ON p.player_id = ps.player_id \
                     JOIN teams t ON p.team_id = t.team_id \
                     JOIN team_stats ts ON t.team_id = ts.team_id \
@@ -49,7 +50,10 @@ const getPlayerById = (req, res) => {
                 res.status(500).send()
                 return done();
             }
-            res.status(200).json(results.rows)
+            else{
+                res.status(200).json(results.rows)
+                return done();
+            }
         })
     })
 }
@@ -57,13 +61,12 @@ const getPlayerById = (req, res) => {
 const getPlayerByName = (req, res) => {
     pool.connect(function (err, client, done) {
         if (err) {
-            console.error(err);
-            // should return response error like 
+            console.error(err); 
             return res.status(500).send();
         }
     const name = req.params.name
 
-    pool.query("SELECT * FROM players p \
+    client.query("SELECT * FROM players p \
                     JOIN teams t on p.team_id = t.team_id \
                     WHERE UPPER(CONCAT(p.first_name, ' ', p.last_name)) LIKE UPPER('%'|| $1 ||'%') \
                     ORDER BY p.first_name, p.last_name", [name],
@@ -72,7 +75,10 @@ const getPlayerByName = (req, res) => {
                 res.status(500).send()
                 return done();
             }
-            res.status(200).json(results.rows)
+            else{
+                res.status(200).json(results.rows)
+                return done();
+            }
         })
     })
 }
@@ -80,17 +86,19 @@ const getPlayerByName = (req, res) => {
 const getTeams = (req, res) => {
     pool.connect(function (err, client, done) {
         if (err) {
-            console.error(err);
-            // should return response error like 
+            console.error(err); 
             return res.status(500).send();
         }
-    pool.query('SELECT * FROM teams ORDER BY city ASC',
+    client.query('SELECT * FROM teams ORDER BY city ASC',
         (error, results) => {
             if (error){
                 res.status(500).send()
                 return done();
             }
-            res.status(200).json(results.rows)
+            else{
+                res.status(200).json(results.rows)
+                return done();
+            }
         })
     })
 }
@@ -98,13 +106,12 @@ const getTeams = (req, res) => {
 const getTeamById = (req, res) => {
     pool.connect(function (err, client, done) {
         if (err) {
-            console.error(err);
-            // should return response error like 
+            console.error(err); 
             return res.status(500).send();
         }
     const id = req.params.id
 
-    pool.query('SELECT * FROM teams t \
+    client.query('SELECT * FROM teams t \
                     JOIN team_stats ts ON t.team_id = ts.team_id\
                     WHERE t.team_id = $1', [id],
         (error, results) => {
@@ -112,7 +119,10 @@ const getTeamById = (req, res) => {
                 res.status(500).send()
                 return done();
             }
-            res.status(200).json(results.rows)
+            else{
+                res.status(200).json(results.rows)
+                return done();
+            }
         })
     })
 }
@@ -120,13 +130,12 @@ const getTeamById = (req, res) => {
 const getTeamByName = (req, res) => {
     pool.connect(function (err, client, done) {
         if (err) {
-            console.error(err);
-            // should return response error like 
+            console.error(err); 
             return res.status(500).send();
         }
     const name = req.params.name
 
-    pool.query("SELECT * FROM teams t \
+    client.query("SELECT * FROM teams t \
                     WHERE UPPER(CONCAT(t.city, ' ', t.name)) LIKE UPPER('%'|| $1 ||'%') \
                     ORDER BY t.city", [name],
         (error, results) => {
@@ -134,7 +143,10 @@ const getTeamByName = (req, res) => {
                 res.status(500).send()
                 return done();
             }
-            res.status(200).json(results.rows)
+            else{
+                res.status(200).json(results.rows)
+                return done();
+            }
         })
     })
 }
@@ -142,13 +154,12 @@ const getTeamByName = (req, res) => {
 const getTeamLineup = (req, res) => {
     pool.connect(function (err, client, done) {
         if (err) {
-            console.error(err);
-            // should return response error like 
+            console.error(err); 
             return res.status(500).send();
         }
     const id = req.params.id
 
-    pool.query("SELECT p.* FROM team_stats ts \
+    client.query("SELECT p.* FROM team_stats ts \
 	                JOIN players p ON ts.team_id = p.team_id \
                     WHERE ts.team_id = $1 \
                     ORDER BY p.position", [id],
@@ -157,7 +168,10 @@ const getTeamLineup = (req, res) => {
                 res.status(500).send()
                 return done();
             }
-            res.status(200).json(results.rows)
+            else{
+                res.status(200).json(results.rows)
+                return done();
+            }
         })
     })
 }
@@ -165,17 +179,19 @@ const getTeamLineup = (req, res) => {
 const getAllTeamsStats = (req, res) => {
     pool.connect(function (err, client, done) {
         if (err) {
-            console.error(err);
-            // should return response error like 
+            console.error(err); 
             return res.status(500).send();
         }
-    pool.query('SELECT * FROM teams t JOIN team_stats ts ON t.team_id = ts.team_id',
+    client.query('SELECT * FROM teams t JOIN team_stats ts ON t.team_id = ts.team_id',
         (error, results) => {
             if (error){
                 res.status(500).send()
                 return done();
             }
-            res.status(200).json(results.rows)
+            else{
+                res.status(200).json(results.rows)
+                return done();
+            }
         })
     })
 }
@@ -184,14 +200,13 @@ const getPointsGroupedByPosition = (req, res) => {
     pool.connect(function (err, client, done) {
         if (err) {
             console.error(err);
-            // should return response error like 
             return res.status(500).send();
         }
     const id = req.params.id
 
-    pool.query('SELECT SUM(ps.points) as total_points, p.position, t.team_id FROM players p \
+    client.query('SELECT SUM(ps.points) as total_points, p.position, t.team_id FROM players p \
 	                JOIN player_stats ps ON ps.player_id = p.player_id \
-	                JOIN teams t ON p.team_id = t.team_id \
+	                JOIN teams t ON ps.team_id = t.team_id \
 	                WHERE t.team_id = $1 \
 	                GROUP BY p.position, t.team_id', [id],
         (error, results) => {
@@ -199,7 +214,10 @@ const getPointsGroupedByPosition = (req, res) => {
                 res.status(500).send()
                 return done();
             }
-            res.status(200).json(results.rows)
+            else{
+                res.status(200).json(results.rows)
+                return done();
+            }
         })
     })
 }
