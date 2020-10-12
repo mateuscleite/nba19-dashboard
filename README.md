@@ -2,26 +2,44 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
 
+## Tech Stack
+
+To run this project it is required to have installed in your computer:
+
+- [Node.js](https://nodejs.org)
+- [Angular](https://angular.io/)
+- [Yarn](https://classic.yarnpkg.com/)
+
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Using two terminals
 
-## Code scaffolding
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+In another terminal run `ỳarn serve` for the backend server. It is located at `http://localhost:8000/`.
 
-## Build
+### Using a single terminal
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `yarn serve` to serve both the frontend and the backend of the application. Navigate to `http://localhost:4200/`. The backend server API is located at `http://localhost:8000/`.
 
-## Running unit tests
+## Endpoints
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- `/players`: returns an array with all players
+- `/players/name/:name` : returns an array of players which name contains :name
+- `/players/:id` : returns the player with player_id = :id
+- `/teams` : returns an array with all teams
+- `/teams/stats` : returns an array with all stats of all teams
+- `/teams/name/:name` : returns an array of teams which name contains :name
+- `/teams/:id` : returns the team with team_id = :id
+- `/teams/:id/lineup` : returns an array with the roster of a team
+- `/teams/:id/pointsByPosition` : returns an array with the sum of points made by each position in a team 
 
-## Running end-to-end tests
+## Preview 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Access [NBA19-dashboard](https://nba19-dashboard.mateuscleite.vercel.app/) to see a preview of this project in your browser.
 
-## Further help
+Frontend deployment was made using [Vercel](https://vercel.com/)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Backend deployment was made using [Heroku](www.heroku.com)
+
