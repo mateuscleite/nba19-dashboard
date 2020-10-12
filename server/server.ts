@@ -42,3 +42,5 @@ app.get('/teams/name/:name', db.getTeamByName)
 app.get('/teams/:id', db.getTeamById)
 //get a specific team lineup
 app.get('/teams/:id/lineup', db.getTeamLineup)
+//
+app.get('/teams/:id/pointsByPosition', db.getPointsGroupedByPosition)

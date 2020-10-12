@@ -33,12 +33,10 @@ export class PlayerDetailsComponent implements OnInit {
         
         if(response.length === 0){
           this.loadingState = 'empty-data'
-          console.log("Silvio Santos")
         }
         else{
           this.player = response[0]
           this.titleService.setTitle(`${this.player['first_name']} ${this.player['last_name']}`);
-          console.log(this.player)
           this.loadingState = 'done'
         }
       })

@@ -46,6 +46,13 @@
                 <span>{{ team['season_type'] | seasonType }}</span>
             </div>
         </div>
+
+        <app-pie-chart 
+            [dataInput]='pointsByPosition' 
+            [labelsInput]="position" 
+            [title]='"Points By Position"'>
+        </app-pie-chart>
+
         <p class="title">Roster</p>
         <div class="list">
             <div class="item card player-list-card" *ngFor="let player of players" [routerLink]="['/players',player['player_id']]">

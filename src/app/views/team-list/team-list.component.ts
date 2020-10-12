@@ -33,7 +33,6 @@ export class TeamListComponent implements OnInit {
       .subscribe(response =>{
         this.teams = response
         this.loadingState = 'done'
-        console.log(this.teams)
       })
   }
 

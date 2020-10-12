@@ -116,6 +116,22 @@ const getAllTeamsStats = (req, res) => {
         })
 }
 
+const getPointsGroupedByPosition = (req, res) => {
+    const id = req.params.id
+
+    pool.query('SELECT SUM(ps.points) as total_points, p.position, t.team_id FROM players p \
+	                JOIN player_stats ps ON ps.player_id = p.player_id \
+	                JOIN teams t ON p.team_id = t.team_id \
+	                WHERE t.team_id = $1 \
+	                GROUP BY p.position, t.team_id', [id],
+        (error, results) => {
+            if (error){
+                throw error
+            }
+            res.status(200).json(results.rows)
+        })
+}
+
 module.exports = {
     getPlayers,
     getPlayerById,
@@ -124,5 +140,6 @@ module.exports = {
     getTeamById,
     getTeamByName,
     getTeamLineup,
-    getAllTeamsStats
+    getAllTeamsStats,
+    getPointsGroupedByPosition
 }

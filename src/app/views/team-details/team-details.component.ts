@@ -16,15 +16,24 @@ export class TeamDetailsComponent implements OnInit {
 
   team: any = new Object();
   players: any[] = new Array(); 
+  pointsByPosition: any[] = new Array();
+  primary_color: any[] = new Array();
+  position: any[] = new Array();
   loadingState: string;
   subscription: Subscription;
   lineupSubscription: Subscription;
+  pointsByPositionSubscription: Subscription;
 
   constructor(private route: ActivatedRoute, private router: Router, private service: NbaService, private titleService: Title) { }
 
   ngOnInit(): void {
     this.loadingState = 'loading'
     this.loadTeamsDetails();
+  }
+
+  //gets only one property from items ins an array
+  pluck(array: any[], key: string) {
+    return array.map(item =>  item[key]);
   }
 
   loadTeamsDetails(){
@@ -34,7 +43,7 @@ export class TeamDetailsComponent implements OnInit {
             this.team = response[0];
             let title: string = `${this.team['name']}`;
             this.titleService.setTitle(title);
-            console.log(this.team)
+            this.loadPointsByPosition();
             this.loadTeamLineup();
           })
         })
@@ -44,7 +53,14 @@ export class TeamDetailsComponent implements OnInit {
     this.lineupSubscription = this.service.getTeamLineup(this.team['team_id']).subscribe(response =>{
       this.players = response;
       this.loadingState = 'done'
-      console.log(this.players)
+    })
+  }
+
+  loadPointsByPosition(){
+    this.pointsByPositionSubscription = this.service.getPointsByPosition(this.team['team_id']).subscribe(response =>{
+      this.pointsByPosition = response
+      this.position = this.pluck(this.pointsByPosition, 'position')
+      this.pointsByPosition = this.pluck(this.pointsByPosition, 'total_points')
     })
   }
 

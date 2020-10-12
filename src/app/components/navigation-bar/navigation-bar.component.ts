@@ -34,7 +34,6 @@ export class NavigationBarComponent implements OnInit {
 
 
   showMenu(){
-    console.log(this.menuActive)
     if(this.screenWidth <= 800){
       this.menuActive = !this.menuActive
     }

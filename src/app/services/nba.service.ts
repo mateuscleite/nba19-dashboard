@@ -42,4 +42,8 @@ export class NbaService {
   getAllTeamsStats(){
     return this.http.get<any[]>(`${this.API}teams/stats`)
   }
+
+  getPointsByPosition(id: number){
+    return this.http.get<any[]>(`${this.API}teams/${id}/pointsByPosition`)
+  }
 }

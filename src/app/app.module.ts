@@ -27,6 +27,7 @@ import { HeightInMetersPipe } from './pipes/height-in-meters.pipe';
 import { AgePipe } from './pipes/age.pipe';
 import { WeightInKgPipe } from './pipes/weight-in-kg.pipe';
 import { CompareTeamsComponent } from './views/compare-teams/compare-teams.component';
+import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { CompareTeamsComponent } from './views/compare-teams/compare-teams.compo
     LoadingComponent,
     ResourceNotFoundComponent,
     BarChartComponent,
-    CompareTeamsComponent
+    CompareTeamsComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,

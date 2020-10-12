@@ -1,5 +1,3 @@
-import { Subscription } from 'rxjs';
-import { NbaService } from './../../services/nba.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { HostListener } from '@angular/core';
 
@@ -81,9 +79,11 @@ export class BarChartComponent implements OnInit {
         this.screenWidth = window.innerWidth;
         if(this.screenWidth > 800){
           this.options['maintainAspectRatio'] = true;
+          this.colors = this.colorfy()
         }
         else{
           this.options['maintainAspectRatio'] = false;
+          this.colors = this.colorfy()
         }
   }
   
