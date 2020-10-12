@@ -1,4 +1,4 @@
-# Nba19Dashboard
+# Nba19 Dashboard
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
 
@@ -13,13 +13,21 @@ To run this project it is required to have installed in your computer:
 
 ## Development server
 
-### Using two terminals
+On the root folder of the project run: 
+- `yarn install`
+- `yarn add concurrently`
+- `cd server && yarn add ts-node ts-node-dev`
+- `cd ..`
+
+Once back on the root folder, follow either one of the following instructions:
+
+### Using two command terminals
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
-In another terminal run `cd server && ỳarn serve` for the backend server. It is located at `http://localhost:8000/`.
+In another terminal, go back to the root folder of the project and run `cd server && ỳarn serve` for the backend server. It is located at `http://localhost:8000/`.
 
-### Using a single terminal
+### Using a single command terminal
 
 Run `yarn serve` to serve both the frontend and the backend of the application. Navigate to `http://localhost:4200/`. The backend server API is located at `http://localhost:8000/`.
 
