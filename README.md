@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
 
+## THE DATABASE HAS BEEN DROPPED BY ITS OWNERS AS OF 21/10/2020, SO THE APPLICATION NO LONGER WORKS
+
 ## Tech Stack
 
 To run this project it is required to have installed in your computer:
